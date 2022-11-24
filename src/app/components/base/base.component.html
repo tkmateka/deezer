@@ -16,6 +16,8 @@
         </div>
     </div>
     <div class="main-container">
-
+        <div class="search-results" *ngIf="searchCalled">
+            <app-search-results [searchResults]="searchResults"></app-search-results>
+        </div>
     </div>
 </div>

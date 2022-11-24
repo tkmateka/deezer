@@ -11,11 +11,13 @@ import { BaseComponent } from './components/base/base.component';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { HttpClientModule } from '@angular/common/http';
+import { SearchResultsComponent } from './components/search-results/search-results.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    BaseComponent
+    BaseComponent,
+    SearchResultsComponent
   ],
   imports: [
     BrowserModule,
