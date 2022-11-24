@@ -21,19 +21,26 @@ body {
 .white-color {
     color: $white;
 }
+.white-bg {
+    background-color: $white;
+}
 .blue-bg {
     background-color: $blue;
+}
+.text-center {
+    text-align: center;
 }
 
 .row,
 .column {
     display: flex;
+    flex-wrap: wrap;
 }
 .row {
-    flex-direction: row wrap;
+    flex-direction: row;
 }
 .column {
-    flex-direction: column wrap;
+    flex-direction: column;
 }
 .space-between_center {
     justify-content: space-between;
@@ -42,6 +49,18 @@ body {
 .center_center {
     justify-content: center;
     align-items: center;
+}
+
+.width-32 {
+    width: 32%;
+}
+
+.width-49 {
+    width: 49%;
+}
+
+.full-width {
+    width: 100%;
 }
 
 // =======================================================================================================================

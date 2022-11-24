@@ -1,0 +1,7 @@
+<mat-card class="card">
+    <img [src]="artist?.picture_big" alt="artist Picture">
+    <mat-card-content>
+        <mat-card-title>{{artist?.name}}</mat-card-title>
+        <p class="fans-font">{{formatFanTotal(artist?.nb_fan)}} {{artist?.nb_fan === 1 ? 'Fan' : 'Fans'}}</p>
+    </mat-card-content>
+</mat-card>
