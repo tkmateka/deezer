@@ -4,19 +4,19 @@
             <img src="../../../assets/images/avatar.webp" alt="avatar" width="55px" height="55px">
         </div>
         <!-- For Mobile -->
-        <div class="white-bg search-icon-box column center_center" *ngIf="(device === 'mobile') && hideSearchInput"
-            (click)="hideSearchInput = false">
-            <mat-icon matPrefix> search </mat-icon>
+        <div class="white-bg search-icon-box column center_center pointer"
+            *ngIf="(device === 'mobile') && hideSearchInput" (click)="hideSearchInput = false">
+            <mat-icon matPrefix class="pointer"> search </mat-icon>
         </div>
         <!-- Openned Search Input -->
         <div class="search-bar-container column" *ngIf="(device !== 'mobile') || !hideSearchInput">
             <div class="whiteInputContainer">
                 <form (ngSubmit)="search()">
                     <mat-form-field appearance="outline">
-                        <mat-icon matPrefix (click)="search()">search</mat-icon>
+                        <mat-icon matPrefix (click)="search()" class="pointer">search</mat-icon>
                         <input type="text" [(ngModel)]="searchString" name="searchString" matInput
                             placeholder="Search Artist">
-                        <mat-icon matSuffix (click)="hideSearchInput = true">close</mat-icon>
+                        <mat-icon matSuffix (click)="hideSearchInput = true" class="pointer">close</mat-icon>
                     </mat-form-field>
                 </form>
             </div>
