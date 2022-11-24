@@ -38,9 +38,9 @@ body {
 .row,
 .column {
     display: flex;
-    flex-wrap: wrap;
 }
 .row {
+    flex-wrap: wrap;
     flex-direction: row;
 }
 .column {
@@ -63,8 +63,16 @@ body {
     width: 48%;
 }
 
-.full-width {
+.width-90 {
+    width: 90%;
+}
+.full-width,
+app-search-results,
+app-artist-details {
     width: 100%;
+}
+.max-width-300px {
+    max-width: 300px;
 }
 .spinner {
     position: absolute;
