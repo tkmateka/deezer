@@ -6,6 +6,7 @@
 $white: #ffffff;
 $black: #000000;
 $blue: #009cff;
+$red: #ff0045;
 
 // =======================================================================================================================
 // Global Basic Styles
@@ -20,6 +21,9 @@ body {
 }
 .white-color {
     color: $white;
+}
+.red-color {
+    color: $red;
 }
 .white-bg {
     background-color: $white;

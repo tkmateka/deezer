@@ -22,14 +22,15 @@
             </div>
         </div>
     </div>
+
     <div class="main-container row center_center" #mainContainer>
         <!-- Spinner/Loader -->
         <div class="spinner" *ngIf="spinner">
             <mat-spinner></mat-spinner>
         </div>
         <!-- Search Results -->
-        <div class="column search-results" *ngIf="searchCalled">
-            <div class="row">
+        <div class="column search-results" *ngIf="searchCalled && searchResults.total > 0">
+            <div class="row center_center">
                 <app-search-results [searchResults]="searchResults" [searchString]="searchString"></app-search-results>
             </div>
 
@@ -41,6 +42,10 @@
                 <button mat-raised-button class="width-32" [disabled]="!searchResults?.next"
                     (click)="getData(searchResults?.next)" color="accent">Accent</button>
             </div>
+        </div>
+        <!-- No Results -->
+        <div class="column search-results center_center" *ngIf="searchCalled && searchResults.total < 1">
+            <h2 class="text-center">No Results For: <i class="red-color">{{searchString}}</i></h2>
         </div>
     </div>
 </div>
