@@ -8,11 +8,12 @@ import { ApiService } from '../../services/api.service';
   styleUrls: ['./base.component.scss']
 })
 export class BaseComponent implements OnInit {
-  searchString: string = 'kendric';
+  searchString: string = '';
   searchResults: any;
   searchCalled: boolean = false;
   device: string = 'web';
   hideSearchInput: boolean = true;
+  spinner: boolean = false;
 
   @HostListener('window:resize', ['$event'])
   onResize(event: any) {
@@ -25,17 +26,23 @@ export class BaseComponent implements OnInit {
 
   ngOnInit(): void {
     this.handleDeviceChange(window.innerWidth);
-    this.search();
   }
 
   search(): void {
-    this.searchCalled = true;
     let url = `${environment.deezerBaseUrl}/search/artist/?q=${this.searchString}&index=0&output=json`; // No Limit. If needed add "&limit=3"
     this.getData(url);
   }
 
   getData(url: string) {
-    this.api.genericGet(url).subscribe((res: any) => this.searchResults = res);
+    this.spinner = true;
+    this.api.genericGet(url).subscribe((res: any) => {
+      this.searchCalled = true;
+      this.searchResults = res;
+      this.spinner = false;
+    }, (err: any) => {
+      console.log("Error", err);
+      this.spinner = false;
+    });
 
     if (this.mainContainer) {
       this.mainContainer.nativeElement.scrollTop = 0;

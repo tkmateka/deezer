@@ -15,6 +15,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { SearchResultsComponent } from './components/search-results/search-results.component';
 import { ArtistDetailsComponent } from './components/artist-details/artist-details.component';
 import { MatCardModule } from '@angular/material/card';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { MatCardModule } from '@angular/material/card';
     MatButtonModule,
     MatInputModule,
     MatIconModule,
-    MatCardModule
+    MatCardModule,
+    MatProgressSpinnerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

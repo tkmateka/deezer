@@ -23,6 +23,10 @@
         </div>
     </div>
     <div class="main-container row center_center" #mainContainer>
+        <!-- Spinner/Loader -->
+        <div class="spinner" *ngIf="spinner">
+            <mat-spinner></mat-spinner>
+        </div>
         <!-- Search Results -->
         <div class="column search-results" *ngIf="searchCalled">
             <div class="row">
