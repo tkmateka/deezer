@@ -1,4 +1,102 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+// =======================================================================================================================
+// Global Colors
+// =======================================================================================================================
+$white: #ffffff;
+$black: #000000;
+$blue: #009cff;
+
+// =======================================================================================================================
+// Global Basic Styles
+// =======================================================================================================================
+html,
+body {
+    height: 100%;
+}
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+.white-color {
+    color: $white;
+}
+.blue-bg {
+    background-color: $blue;
+}
+
+.row,
+.column {
+    display: flex;
+}
+.row {
+    flex-direction: row wrap;
+}
+.column {
+    flex-direction: column wrap;
+}
+.space-between_center {
+    justify-content: space-between;
+    align-items: center;
+}
+.center_center {
+    justify-content: center;
+    align-items: center;
+}
+
+// =======================================================================================================================
+// Inputs container mixins
+// =======================================================================================================================
+@mixin inputReset {
+    mat-form-field {
+        width: 100%;
+    }
+    .mat-form-field {
+        line-height: 0.9;
+    }
+    .mat-form-field-wrapper {
+        padding-bottom: 0;
+    }
+    .mat-form-field-infix {
+        border-top: 0 solid transparent;
+    }
+    .mat-form-field-flex {
+        height: 100%;
+    }
+    .mat-form-field-appearance-outline .mat-form-field-outline {
+        color: transparent;
+        border-radius: 4px;
+    }
+    .mat-form-field-appearance-outline .mat-form-field-infix {
+        padding: 0.8em 0 0.5em 0;
+    }
+    .mat-form-field-appearance-outline .mat-form-field-wrapper {
+        margin: 0;
+        height: 43px;
+    }
+    .mat-form-field-suffix .mat-icon {
+        color: $black;
+    }
+}
+
+@mixin whiteBackground {
+    .mat-form-field-appearance-outline .mat-form-field-outline {
+        background: $white;
+        height: 100%;
+    }
+}
+
+@mixin greyBorder {
+    border: 2px solid rgba(143, 146, 161, 0.2);
+    border-radius: 4px;
+}
+
+.whiteInputContainer,
+.whiteSelectContainer {
+    @include inputReset;
+    @include greyBorder;
+    @include whiteBackground;
+    .mat-form-field-appearance-outline .mat-form-field-infix {
+        padding: 1.1em 0 1em 0;
+    }
+}

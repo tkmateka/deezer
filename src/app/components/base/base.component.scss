@@ -1,0 +1,18 @@
+.base-container {
+    height: 100vh;
+    .tool-bar {
+        height: 60px;
+        .logo {
+            width: 70px;
+        }
+        .search-bar-container {
+            width: calc(100vw - 80px);
+            .whiteInputContainer {
+                width: 70%;
+            }
+        }
+    }
+    .main-container {
+        height: calc(100vh - 60px);
+    }
+}

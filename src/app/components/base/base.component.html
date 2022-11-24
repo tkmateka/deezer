@@ -1,5 +1,21 @@
 <div class="base-container">
-    <div class="tool-bar">
-        Hellow there
+    <div class="tool-bar row space-between_center blue-bg">
+        <div class="logo column center_center">
+            <img src="../../../assets/images/avatar.webp" alt="avatar" width="55px" height="55px">
+        </div>
+        <div class="search-bar-container column">
+            <div class="whiteInputContainer">
+                <form (ngSubmit)="search()">
+                    <mat-form-field appearance="outline">
+                        <mat-icon matPrefix (click)="search()">search</mat-icon>
+                        <input type="text" [(ngModel)]="searchString" name="searchString" matInput
+                            placeholder="Search Artist">
+                    </mat-form-field>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="main-container">
+
     </div>
 </div>
