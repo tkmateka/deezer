@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, HostListener, Input, OnChanges, SimpleChanges } from '@angular/core';
 
 @Component({
   selector: 'app-artist-details',
@@ -7,13 +7,20 @@ import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 })
 export class ArtistDetailsComponent implements OnChanges {
   @Input() artist: any;
+  device: string = 'web';
 
-  constructor() { }
+  @HostListener('window:resize', ['$event'])
+  onResize(event: any) {
+    this.handleDeviceChange(event.target.innerWidth);
+  }
+
+  constructor() {
+    this.handleDeviceChange(window.innerWidth);
+  }
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['artist']) {
       this.artist = changes['artist'].currentValue;
-      console.log(this.artist);
     };
   }
 
@@ -29,4 +36,8 @@ export class ArtistDetailsComponent implements OnChanges {
     if (n >= 1e9 && n < 1e12) return +(n / 1e9).toFixed(1) + "B";
     if (n >= 1e12) return +(n / 1e12).toFixed(1) + "T";
   };
+
+  handleDeviceChange(width: number): void {
+    this.device = (width <= 600) ? 'mobile' : (width > 600 && width < 900) ? 'tablet' : 'web';
+  }
 }

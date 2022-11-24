@@ -1,8 +1,10 @@
-<h2 class="text-center">Search Results For: <i>{{searchString}}</i></h2>
-<div class="row space-between_center stretch">
-    <div class="column margin-bottom-1em" [class.full-width]="device === 'mobile'"
-        [class.width-49]="device === 'tablet'" [class.width-32]="device === 'web'"
-        *ngFor="let artist of searchResults?.data">
-        <app-artist-details [artist]="artist"></app-artist-details>
+<div class="column center_center">
+    <h2 class="text-center">Search Results For: <i>{{searchString}}</i></h2>
+    <div class="row space-between_center stretch gap-1em">
+        <div class="column margin-bottom-1em" [class.full-width]="device === 'mobile'"
+            [class.width-49]="device === 'tablet'" [class.width-32]="device === 'web'"
+            *ngFor="let artist of searchResults?.data">
+            <app-artist-details [artist]="artist"></app-artist-details>
+        </div>
     </div>
 </div>

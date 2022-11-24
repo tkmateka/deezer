@@ -1,4 +1,4 @@
-import { Component, HostListener, OnInit } from '@angular/core';
+import { Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { ApiService } from '../../services/api.service';
 
@@ -19,6 +19,8 @@ export class BaseComponent implements OnInit {
     this.handleDeviceChange(event.target.innerWidth);
   }
 
+  @ViewChild('mainContainer', { static: false }) mainContainer!: ElementRef;
+
   constructor(private api: ApiService) { }
 
   ngOnInit(): void {
@@ -29,7 +31,15 @@ export class BaseComponent implements OnInit {
   search(): void {
     this.searchCalled = true;
     let url = `${environment.deezerBaseUrl}/search/artist/?q=${this.searchString}&index=0&output=json`; // No Limit. If needed add "&limit=3"
+    this.getData(url);
+  }
+
+  getData(url: string) {
     this.api.genericGet(url).subscribe((res: any) => this.searchResults = res);
+
+    if (this.mainContainer) {
+      this.mainContainer.nativeElement.scrollTop = 0;
+    }
   }
 
   handleDeviceChange(width: number): void {

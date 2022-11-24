@@ -14,6 +14,7 @@
     }
     .main-container {
         height: calc(100vh - 60px);
+        overflow-y: auto;
         .search-results {
             width: 80%;
         }
@@ -37,6 +38,7 @@
 @media only screen and (max-width: 600px) {
     .search-results {
         width: 95% !important;
+        gap: 1em;
     }
     .search-bar-container {
         align-content: flex-end;

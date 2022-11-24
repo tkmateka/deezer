@@ -22,13 +22,20 @@
             </div>
         </div>
     </div>
-    <div class="main-container row center_center">
+    <div class="main-container row center_center" #mainContainer>
         <!-- Search Results -->
         <div class="column search-results" *ngIf="searchCalled">
-            <app-search-results [searchResults]="searchResults" [searchString]="searchString"></app-search-results>
+            <div class="row">
+                <app-search-results [searchResults]="searchResults" [searchString]="searchString"></app-search-results>
+            </div>
+
             <div class="action-buttons-container row center_center">
-                <button mat-raised-button class="width-32" disabled color="primary">Primary</button>
-                <button mat-raised-button class="width-32" disabled color="accent">Accent</button>
+                <!-- Previous Page -->
+                <button mat-raised-button class="width-32" [disabled]="!searchResults?.prev"
+                    (click)="getData(searchResults?.prev)" color="primary">Primary</button>
+                <!-- Next Page -->
+                <button mat-raised-button class="width-32" [disabled]="!searchResults?.next"
+                    (click)="getData(searchResults?.next)" color="accent">Accent</button>
             </div>
         </div>
     </div>
