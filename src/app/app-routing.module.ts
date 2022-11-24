@@ -6,9 +6,7 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
 const routes: Routes = [
   { path: '', redirectTo: '/deezer', pathMatch: 'full' },
   {
-    path: 'deezer', component: BaseComponent, children: [
-      // { path: 'dashboard', component: EmployeeDashboardComponent },
-    ]
+    path: 'deezer', component: BaseComponent
   },
   { path: '**', component: PageNotFoundComponent }
 ];

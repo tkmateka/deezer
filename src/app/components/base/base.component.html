@@ -3,19 +3,33 @@
         <div class="logo column center_center">
             <img src="../../../assets/images/avatar.webp" alt="avatar" width="55px" height="55px">
         </div>
-        <div class="search-bar-container column">
+        <!-- For Mobile -->
+        <div class="white-bg search-icon-box column center_center" *ngIf="(device === 'mobile') && hideSearchInput"
+            (click)="hideSearchInput = false">
+            <mat-icon matPrefix> search </mat-icon>
+        </div>
+        <!-- Openned Search Input -->
+        <div class="search-bar-container column" *ngIf="(device !== 'mobile') || !hideSearchInput">
             <div class="whiteInputContainer">
                 <form (ngSubmit)="search()">
                     <mat-form-field appearance="outline">
                         <mat-icon matPrefix (click)="search()">search</mat-icon>
                         <input type="text" [(ngModel)]="searchString" name="searchString" matInput
                             placeholder="Search Artist">
+                        <mat-icon matSuffix (click)="hideSearchInput = true">close</mat-icon>
                     </mat-form-field>
                 </form>
             </div>
         </div>
     </div>
-    <div class="main-container">
-
+    <div class="main-container row center_center">
+        <!-- Search Results -->
+        <div class="column search-results" *ngIf="searchCalled">
+            <app-search-results [searchResults]="searchResults" [searchString]="searchString"></app-search-results>
+            <div class="action-buttons-container row center_center">
+                <button mat-raised-button class="width-32" disabled color="primary">Primary</button>
+                <button mat-raised-button class="width-32" disabled color="accent">Accent</button>
+            </div>
+        </div>
     </div>
 </div>

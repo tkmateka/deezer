@@ -1,0 +1,15 @@
+.fans-font {
+    margin: 0;
+    font-size: 1.5em;
+    font-weight: 200;
+}
+.card {
+    padding: 0;
+    height: 100%;
+    img {
+        width: 100%;
+    }
+    mat-card-content {
+        padding: 16px;
+    }
+}
