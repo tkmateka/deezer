@@ -1,7 +1,17 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { BaseComponent } from './components/base/base.component';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 
-const routes: Routes = [];
+const routes: Routes = [
+  { path: '', redirectTo: '/deezer', pathMatch: 'full' },
+  {
+    path: 'deezer', component: BaseComponent, children: [
+      // { path: 'dashboard', component: EmployeeDashboardComponent },
+    ]
+  },
+  { path: '**', component: PageNotFoundComponent }
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

@@ -25,7 +25,7 @@ module.exports = function (config) {
       suppressAll: true // removes the duplicated traces
     },
     coverageReporter: {
-      dir: require('path').join(__dirname, './coverage/dvt-deezer-app'),
+      dir: require('path').join(__dirname, './coverage/deezer-app'),
       subdir: '.',
       reporters: [
         { type: 'html' },
