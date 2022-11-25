@@ -67,7 +67,8 @@ body {
     width: 90%;
 }
 .full-height,
-app-top-five {
+app-top-five,
+app-artist-view {
     height: 100%;
 }
 .full-width,
@@ -91,6 +92,10 @@ app-top-five {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.stretch {
+    align-items: stretch !important;
 }
 
 // =======================================================================================================================
