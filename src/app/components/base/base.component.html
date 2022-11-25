@@ -4,19 +4,19 @@
             <img src="../../../assets/images/avatar.webp" alt="avatar" width="55px" height="55px">
         </div>
         <!-- For Mobile -->
-        <div class="white-bg search-icon-box column center_center" *ngIf="(device === 'mobile') && hideSearchInput"
-            (click)="hideSearchInput = false">
-            <mat-icon matPrefix> search </mat-icon>
+        <div class="white-bg search-icon-box column center_center pointer"
+            *ngIf="(device === 'mobile') && hideSearchInput" (click)="hideSearchInput = false">
+            <mat-icon matPrefix class="pointer"> search </mat-icon>
         </div>
         <!-- Openned Search Input -->
         <div class="search-bar-container column" *ngIf="(device !== 'mobile') || !hideSearchInput">
             <div class="whiteInputContainer">
                 <form (ngSubmit)="search()">
                     <mat-form-field appearance="outline">
-                        <mat-icon matPrefix (click)="search()">search</mat-icon>
+                        <mat-icon matPrefix (click)="search()" class="pointer">search</mat-icon>
                         <input type="text" [(ngModel)]="searchString" name="searchString" matInput
                             placeholder="Search Artist">
-                        <mat-icon matSuffix (click)="hideSearchInput = true">close</mat-icon>
+                        <mat-icon matSuffix (click)="hideSearchInput = true" class="pointer">close</mat-icon>
                     </mat-form-field>
                 </form>
             </div>
@@ -24,28 +24,6 @@
     </div>
 
     <div class="main-container row center_center" #mainContainer>
-        <!-- Spinner/Loader -->
-        <div class="spinner" *ngIf="spinner">
-            <mat-spinner></mat-spinner>
-        </div>
-        <!-- Search Results -->
-        <div class="column search-results" *ngIf="searchCalled && searchResults.total > 0">
-            <div class="row center_center">
-                <app-search-results [searchResults]="searchResults" [searchString]="searchString"></app-search-results>
-            </div>
-
-            <div class="action-buttons-container row center_center">
-                <!-- Previous Page -->
-                <button mat-raised-button class="width-32" [disabled]="!searchResults?.prev"
-                    (click)="getData(searchResults?.prev)" color="primary">Primary</button>
-                <!-- Next Page -->
-                <button mat-raised-button class="width-32" [disabled]="!searchResults?.next"
-                    (click)="getData(searchResults?.next)" color="accent">Accent</button>
-            </div>
-        </div>
-        <!-- No Results -->
-        <div class="column search-results center_center" *ngIf="searchCalled && searchResults.total < 1">
-            <h2 class="text-center">No Results For: <i class="red-color">{{searchString}}</i></h2>
-        </div>
+        <router-outlet></router-outlet>
     </div>
 </div>

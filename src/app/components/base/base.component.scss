@@ -7,6 +7,8 @@
         }
         .search-bar-container {
             width: calc(100vw - 90px);
+            align-items: flex-end;
+            margin-right: 1em;
             .whiteInputContainer {
                 width: 70%;
             }
@@ -15,17 +17,7 @@
     .main-container {
         height: calc(100vh - 60px);
         overflow-y: auto;
-        .search-results {
-            width: 80%;
-        }
-        .action-buttons-container {
-            margin: 1em;
-            gap: 2em;
-            .mat-raised-button.mat-button-disabled {
-                color: grey;
-                background: lightgray;
-            }
-        }
+        background: #0d9bfc26;
     }
 }
 
@@ -33,18 +25,14 @@
     height: 40px;
     width: 60px;
     margin-right: 1em;
+    border-radius: 5px;
+}
+
+.pointer {
+    cursor: pointer;
 }
 
 @media only screen and (max-width: 600px) {
-    .search-results {
-        width: 95% !important;
-        gap: 1em;
-    }
-    .search-bar-container {
-        align-content: flex-end;
-        padding-right: 10px;
-        width: calc(100vw - 100px) !important;
-    }
     .whiteInputContainer {
         width: 80% !important;
     }

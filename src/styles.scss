@@ -38,9 +38,9 @@ body {
 .row,
 .column {
     display: flex;
-    flex-wrap: wrap;
 }
 .row {
+    flex-wrap: wrap;
     flex-direction: row;
 }
 .column {
@@ -55,16 +55,31 @@ body {
     align-items: center;
 }
 
-.width-32 {
+.width-31_5 {
     width: 31.5%;
 }
 
-.width-49 {
+.width-48 {
     width: 48%;
 }
 
-.full-width {
+.width-90 {
+    width: 90%;
+}
+.full-height,
+app-top-five,
+app-artist-view {
+    height: 100%;
+}
+.full-width,
+app-search-results,
+app-artist-details,
+app-artist-view,
+app-top-five {
     width: 100%;
+}
+.max-width-300px {
+    max-width: 300px;
 }
 .spinner {
     position: absolute;
@@ -77,6 +92,10 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.stretch {
+    align-items: stretch !important;
 }
 
 // =======================================================================================================================

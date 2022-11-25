@@ -1,0 +1,21 @@
+<mat-card class="card">
+    <mat-card-content>
+        <mat-card-title class="no-margin">Top tracks</mat-card-title>
+        <div *ngIf="topFiveTracks.length > 0">
+            <div class="row space-between_center" [class.border-bottom]="i !== (topFiveTracks.length - 1)"
+                *ngFor="let track of topFiveTracks; let i = index">
+                <div class="column width-85">
+                    <p>{{i+1}}. {{track.title}}{{track.title}}</p>
+                </div>
+                <div class="column">
+                    <p>{{handleDuration(track.duration)}}</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row center_center height-100" *ngIf="topFiveTracks.length < 1">
+            <mat-card-subtitle>No tracks found...</mat-card-subtitle>
+        </div>
+
+    </mat-card-content>
+</mat-card>

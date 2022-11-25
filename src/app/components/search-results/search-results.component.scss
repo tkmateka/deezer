@@ -1,13 +1,30 @@
 .margin-bottom-1em {
     margin-bottom: 1em;
 }
-.full-width,
-app-artist-details {
-    height: 100%;
-}
-.stretch {
-    align-items: stretch !important;
-}
 .gap-1em {
     gap: 1em;
+}
+
+.search-results {
+    width: 80%;
+}
+.action-buttons-container {
+    margin: 1em;
+    gap: 2em;
+    .mat-raised-button.mat-button-disabled {
+        color: grey;
+        background: lightgray;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .search-results {
+        width: 95% !important;
+        gap: 1em;
+    }
+    .search-bar-container {
+        align-content: flex-end;
+        padding-right: 10px;
+        width: calc(100vw - 100px) !important;
+    }
 }

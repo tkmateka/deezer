@@ -13,16 +13,22 @@ import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { HttpClientModule } from '@angular/common/http';
 import { SearchResultsComponent } from './components/search-results/search-results.component';
-import { ArtistDetailsComponent } from './components/artist-details/artist-details.component';
+import { ArtistDetailsComponent } from './components/artist-card/artist-details.component';
 import { MatCardModule } from '@angular/material/card';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { ArtistViewComponent } from './components/artist-details/artist-view.component';
+import { TopFiveComponent } from './components/top-five/top-five.component';
+import { AlbumComponent } from './components/album/album.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     BaseComponent,
     SearchResultsComponent,
-    ArtistDetailsComponent
+    ArtistDetailsComponent,
+    ArtistViewComponent,
+    TopFiveComponent,
+    AlbumComponent
   ],
   imports: [
     BrowserModule,

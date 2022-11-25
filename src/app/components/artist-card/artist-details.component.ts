@@ -1,4 +1,5 @@
-import { Component, HostListener, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, HostListener, Input, OnChanges, SimpleChanges, Output, EventEmitter } from '@angular/core';
+import { CommonService } from 'src/app/services/common.service';
 
 @Component({
   selector: 'app-artist-details',
@@ -7,6 +8,7 @@ import { Component, HostListener, Input, OnChanges, SimpleChanges } from '@angul
 })
 export class ArtistDetailsComponent implements OnChanges {
   @Input() artist: any;
+  @Output() cardArtist = new EventEmitter<any>();
   device: string = 'web';
 
   @HostListener('window:resize', ['$event'])
@@ -14,7 +16,7 @@ export class ArtistDetailsComponent implements OnChanges {
     this.handleDeviceChange(event.target.innerWidth);
   }
 
-  constructor() {
+  constructor(public commonService: CommonService) {
     this.handleDeviceChange(window.innerWidth);
   }
 
@@ -24,20 +26,11 @@ export class ArtistDetailsComponent implements OnChanges {
     };
   }
 
-  formatFanTotal(n: number): any {
-    // This will return
-    // 100 if n <= 999
-    // 1k if n >= 1,000
-    // 1m if n >= 1,000,000
-    // 1b if n >= 1,000,000,000
-    if (n < 1e3) return n;
-    if (n >= 1e3 && n < 1e6) return +(n / 1e3).toFixed(1) + "K";
-    if (n >= 1e6 && n < 1e9) return +(n / 1e6).toFixed(1) + "M";
-    if (n >= 1e9 && n < 1e12) return +(n / 1e9).toFixed(1) + "B";
-    if (n >= 1e12) return +(n / 1e12).toFixed(1) + "T";
-  };
-
   handleDeviceChange(width: number): void {
     this.device = (width <= 600) ? 'mobile' : (width > 600 && width < 900) ? 'tablet' : 'web';
+  }
+
+  clickedCard(artist: any): void {
+    this.cardArtist.emit(artist);
   }
 }

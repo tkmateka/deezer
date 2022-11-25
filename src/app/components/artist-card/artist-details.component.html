@@ -1,0 +1,11 @@
+<mat-card class="card" (click)="clickedCard(artist)">
+    <img [src]="artist?.picture_big" alt="artist Picture">
+    <mat-card-content>
+        <mat-card-title>{{artist?.name}}</mat-card-title>
+        <p class="fans-font">{{commonService.formatFanTotal(artist?.nb_fan)}} {{artist?.nb_fan === 1 ? 'Fan' : 'Fans'}}
+        </p>
+        <p class="fans-font" *ngIf="device !== 'mobile'">{{commonService.formatFanTotal(artist?.nb_album)}}
+            {{artist?.nb_album === 1 ?
+            'Album' : 'Albums'}}</p>
+    </mat-card-content>
+</mat-card>

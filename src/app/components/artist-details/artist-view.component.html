@@ -1,0 +1,52 @@
+<div class="row center_center stretch margin-top-2em">
+    <div class="column width-90 gap-1em">
+        <!-- Top 5 Tracks -->
+        <div class="row space-between_center stretch top-tracks-container white-bg">
+            <div class="column center_center artist-profile">
+                <div class="row space-between_center stretch artist-details width-90">
+                    <div class="column artist-name">
+                        <h2>{{artist?.name}}</h2>
+                        <p>{{commonService.formatFanTotal(artist?.nb_fan)}} {{artist?.nb_fan === 1 ? 'Fan' : 'Fans'}}
+                        </p>
+                    </div>
+                    <div class="column width-31_5 full-height">
+                        <img [src]="artist?.picture_big" alt="artist picture" class="full-height">
+                    </div>
+                </div>
+                <!-- Blured Bcakground -->
+                <img [src]="artist?.picture_big" alt="artist picture" class="blured-image">
+            </div>
+            <!-- Top Five tracks -->
+            <div class="column full-height center_center top-5">
+                <app-top-five [topFiveTracks]="topFiveTracks"></app-top-five>
+            </div>
+        </div>
+        <!-- Albums -->
+        <div class="row center_center">
+            <div class="column full-height width-90 white-bg padding-20px">
+                <h3>Albums</h3>
+                <div class="row space-between_center stretch">
+                    <!-- Use slice to display only 3 albums -->
+                    <div class="column margin-bottom-1em width-31_5 responsive-width"
+                        *ngFor="let album of albums | slice:0:3; let i = index">
+                        <mat-card class="full-height">
+                            <app-album [album]="album"></app-album>
+                        </mat-card>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Go back -->
+        <div class="row center_center margin-bottom-2em">
+            <div class="column width-31_5 margin-top-2em">
+                <button mat-raised-button (click)="goBack()" color="accent">Go
+                    Back</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Spinner/Loader -->
+<div class="spinner" *ngIf="spinner">
+    <mat-spinner></mat-spinner>
+</div>
