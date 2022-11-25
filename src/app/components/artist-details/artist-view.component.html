@@ -22,12 +22,12 @@
             </div>
         </div>
         <!-- Albums -->
-        <div class="row center_center margin-bottom-2em">
+        <div class="row center_center">
             <div class="column full-height width-90 white-bg padding-20px">
                 <h3>Albums</h3>
                 <div class="row space-between_center stretch">
                     <!-- Use slice to display only 3 albums -->
-                    <div class="column margin-bottom-1em width-31_5"
+                    <div class="column margin-bottom-1em width-31_5 responsive-width"
                         *ngFor="let album of albums | slice:0:3; let i = index">
                         <mat-card class="full-height">
                             <app-album [album]="album"></app-album>
@@ -36,5 +36,17 @@
                 </div>
             </div>
         </div>
+        <!-- Go back -->
+        <div class="row center_center margin-bottom-2em">
+            <div class="column width-31_5 margin-top-2em">
+                <button mat-raised-button (click)="goBack()" color="accent">Go
+                    Back</button>
+            </div>
+        </div>
     </div>
+</div>
+
+<!-- Spinner/Loader -->
+<div class="spinner" *ngIf="spinner">
+    <mat-spinner></mat-spinner>
 </div>
