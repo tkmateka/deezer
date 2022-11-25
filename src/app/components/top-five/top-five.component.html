@@ -1,0 +1,14 @@
+<mat-card class="card">
+    <mat-card-content>
+        <mat-card-title class="no-margin">hello there</mat-card-title>
+        <div class="row space-between_center height-42" [class.border-bottom]="i !== (topFiveTracks.length - 1)"
+            *ngFor="let track of topFiveTracks; let i = index">
+            <div class="column">
+                <p>{{i+1}}. {{track.title}}</p>
+            </div>
+            <div class="column">
+                <p>{{handleDuration(track.duration)}}</p>
+            </div>
+        </div>
+    </mat-card-content>
+</mat-card>

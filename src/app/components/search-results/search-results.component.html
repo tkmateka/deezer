@@ -3,7 +3,7 @@
         <h2 class="text-center">Search Results For: <i>{{searchString}}</i></h2>
         <div class="row space-between_center stretch gap-1em">
             <div class="column margin-bottom-1em" [class.full-width]="device === 'mobile'"
-                [class.width-49]="device === 'tablet'" [class.width-32]="device === 'web'"
+                [class.width-48]="device === 'tablet'" [class.width-31_5]="device === 'web'"
                 *ngFor="let artist of searchResults?.data">
                 <app-artist-details [artist]="artist" (cardArtist)="handleCardArtist($event)"></app-artist-details>
             </div>
@@ -11,10 +11,10 @@
 
         <div class="action-buttons-container row center_center">
             <!-- Previous Page -->
-            <button mat-raised-button class="width-32 max-width-300px" [disabled]="!searchResults?.prev"
+            <button mat-raised-button class="width-31_5 max-width-300px" [disabled]="!searchResults?.prev"
                 (click)="getData(searchResults?.prev)" color="primary">Primary</button>
             <!-- Next Page -->
-            <button mat-raised-button class="width-32 max-width-300px" [disabled]="!searchResults?.next"
+            <button mat-raised-button class="width-31_5 max-width-300px" [disabled]="!searchResults?.next"
                 (click)="getData(searchResults?.next)" color="accent">Accent</button>
         </div>
     </div>

@@ -17,6 +17,7 @@ import { ArtistDetailsComponent } from './components/artist-card/artist-details.
 import { MatCardModule } from '@angular/material/card';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { ArtistViewComponent } from './components/artist-details/artist-view.component';
+import { TopFiveComponent } from './components/top-five/top-five.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { ArtistViewComponent } from './components/artist-details/artist-view.com
     BaseComponent,
     SearchResultsComponent,
     ArtistDetailsComponent,
-    ArtistViewComponent
+    ArtistViewComponent,
+    TopFiveComponent
   ],
   imports: [
     BrowserModule,

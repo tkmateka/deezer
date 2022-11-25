@@ -1,1 +1,24 @@
-<p>artist-view works!</p>
+<div class="row center_center stretch">
+    <div class="column width-90">
+        <div class="row space-between_center stretch top-tracks-container white-bg">
+            <div class="column center_center artist-profile">
+                <div class="row space-between_center stretch artist-details width-90">
+                    <div class="column artist-name">
+                        <h2>{{artist?.name}}</h2>
+                        <p>{{commonService.formatFanTotal(artist?.nb_fan)}} {{artist?.nb_fan === 1 ? 'Fan' : 'Fans'}}
+                        </p>
+                    </div>
+                    <div class="column width-31_5 full-height">
+                        <img [src]="artist?.picture_big" alt="artist picture" class="full-height">
+                    </div>
+                </div>
+                <!-- Blured Bcakground -->
+                <img [src]="artist?.picture_big" alt="artist picture" class="blured-image">
+            </div>
+            <!-- Top Five tracks -->
+            <div class="column width-31_5 full-height center_center top-5">
+                <app-top-five [topFiveTracks]="topFiveTracks"></app-top-five>
+            </div>
+        </div>
+    </div>
+</div>
